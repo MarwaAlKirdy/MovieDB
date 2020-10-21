@@ -139,7 +139,7 @@ app.get("/movies/update/:id", function (req, res) {
     movies[req.params.id - 1].year = req.query.year;
     movies[req.params.id - 1].rating = req.query.rating;
   }
-  res.send(movies);
+  res.status(200).send(movies);
 });
 
 app.get("/movies/delete", function (req, res) {});
