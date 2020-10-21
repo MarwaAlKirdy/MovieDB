@@ -49,14 +49,19 @@ app.get("/search", function (req, res) {
 app.get("/movies/create", function (req, res) {
   if (
     req.query.title == "" ||
+    typeof req.query.title === "undefined" ||
     req.query.year == "" ||
+    typeof req.query.year === "undefined" ||
     req.query.year.toString().length != 4 ||
     isNaN(req.query.year)
   ) {
     res
       .status(403)
       .send("you cannot create a movie without providing a title and a year");
-  } else if (req.query.rating == "") {
+  } else if (
+    req.query.rating == "" ||
+    typeof req.query.rating === "undefined"
+  ) {
     movie = { title: req.query.title, year: req.query.year, rating: 4 };
     movies.push(movie);
     res.send(movies);
