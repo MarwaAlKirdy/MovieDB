@@ -46,7 +46,30 @@ app.get("/search", function (req, res) {
   }
 });
 
-app.get("/movies/create", function (req, res) {});
+app.get("/movies/create", function (req, res) {
+  if (
+    req.query.title == "" ||
+    req.query.year == "" ||
+    req.query.year.toString().length != 4 ||
+    isNaN(req.query.year)
+  ) {
+    res
+      .status(403)
+      .send("you cannot create a movie without providing a title and a year");
+  } else if (req.query.rating == "") {
+    movie = { title: req.query.title, year: req.query.year, rating: 4 };
+    movies.push(movie);
+    res.send(movies);
+  } else {
+    movie = {
+      title: req.query.title,
+      year: req.query.year,
+      rating: req.query.rating,
+    };
+    movies.push(movie);
+    res.send(movies);
+  }
+});
 
 app.get("/movies/read", function (req, res) {
   res.status(200).send(movies);
