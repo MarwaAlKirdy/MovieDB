@@ -55,3 +55,31 @@ app.get("/movies/read", function (req, res) {
 app.get("/movies/update", function (req, res) {});
 
 app.get("/movies/delete", function (req, res) {});
+
+app.get("/movies/read/by-date", function (req, res) {
+  movies.sort(function (a, b) {
+    return a.year - b.year;
+  });
+  res.status(200).send(movies);
+});
+
+app.get("/movies/read/by-date", function (req, res) {
+  movies.sort(function (a, b) {
+    return a.year - b.year;
+  });
+  res.status(200).send(movies);
+});
+
+app.get("/movies/read/by-rating", function (req, res) {
+  movies.sort(function (a, b) {
+    return b.rating - a.rating;
+  });
+  res.status(200).send(movies);
+});
+
+app.get("/movies/read/by-title", function (req, res) {
+  movies.sort(function (a, b) {
+    return a.title.localeCompare(b.title);
+  });
+  res.status(200).send(movies);
+});
