@@ -119,3 +119,12 @@ app.get("/movies/read/id/:id", function (req, res) {
     res.status(200).send(movies[req.params.id - 1]);
   }
 });
+
+app.get("/movies/delete/:id", function (req, res) {
+  if (req.params.id <= 0 || req.params.id > movies.length) {
+    res.status(404).send("the movie " + req.params.id + " does not exist");
+  } else {
+    movies.splice(req.params.id - 1, 1);
+    res.status(200).send(movies);
+  }
+});
