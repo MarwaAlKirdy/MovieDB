@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon moviesdb.js"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MarwaAlKirdy/MovieDB.git"
@@ -19,7 +18,8 @@
   },
   "homepage": "https://github.com/MarwaAlKirdy/MovieDB#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

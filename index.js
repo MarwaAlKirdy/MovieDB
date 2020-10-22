@@ -9,12 +9,31 @@ if (minutes < 10) {
 }
 var time = hours + ":" + minutes;
 
-const movies = [
-  { title: "Jaws", year: 1975, rating: 8 },
-  { title: "Avatar", year: 2009, rating: 7.8 },
-  { title: "Brazil", year: 1985, rating: 8 },
-  { title: "الإرهاب والكباب‎", year: 1992, rating: 6.2 },
+const movies = [{
+    title: "Jaws",
+    year: 1975,
+    rating: 8
+  },
+  {
+    title: "Avatar",
+    year: 2009,
+    rating: 7.8
+  },
+  {
+    title: "Brazil",
+    year: 1985,
+    rating: 8
+  },
+  {
+    title: "الإرهاب والكباب‎",
+    year: 1992,
+    rating: 6.2
+  },
 ];
+
+
+
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
@@ -62,7 +81,11 @@ app.post("/movies/create", function (req, res) {
     req.query.rating == "" ||
     typeof req.query.rating === "undefined"
   ) {
-    movie = { title: req.query.title, year: req.query.year, rating: 4 };
+    movie = {
+      title: req.query.title,
+      year: req.query.year,
+      rating: 4
+    };
     movies.push(movie);
     res.send(movies);
   } else {
